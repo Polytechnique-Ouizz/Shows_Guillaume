@@ -1,7 +1,7 @@
 class ShowsController < ApplicationController
   before_action :set_show, only: [:show, :edit, :update, :destroy, :book]
 
-  skip_before_action :verify_autheticity_token, only: [:book]
+  skip_before_action :verify_authenticity_token, only: [:book]
 
   # GET /shows
   # GET /shows.json
@@ -64,7 +64,7 @@ class ShowsController < ApplicationController
   end
 
   def book
-    @booking = Booking.new(bookink_params)
+    @booking = Booking.new(booking_params)
     @booking.show = @show
 
     respond_to do |format|
